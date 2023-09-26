@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow Hình Ảnh</title>
+    <style>
+        /* CSS để tạo giao diện cho slideshow */
+        .slideshow-container {
+            max-width: 600px;
+            position: relative;
+            margin: auto;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        /* CSS cho nút điều hướng */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        /* CSS cho nút dưới cùng */
+        .dot-container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active, .dot:hover {
+            background-color: #717171;
+        }
+    </style>
+</head>
+<body>
+
+<div class="slideshow-container">
+    <div class="mySlides">
+        <img src="https://vietabinhdinh.edu.vn/wp-content/uploads/Anh-Cho-Hai-Huoc-Bua-Ngao-Ngo-Buon-Cuoi-Vo.jpg.webp" alt="Hình ảnh 1">
+    </div>
+
+    <div class="mySlides">
+        <img src=" https://demoda.vn/wp-content/uploads/2022/02/anh-ngo-nghinh-dep-nhat.jpg"alt="Hình ảnh 1">
+    </div>
+
+    <div class="mySlides">
+        <img src="https://lh3.googleusercontent.com/iEzF5dGrIDCZJDRQj1Y5aDqfPlrwpnqxi8ez8_E01WswxjWto-zSc4rc9smRwh3sI0oHjqTFhSibqRUcHNqW6qVuEAFB=w622" alt="Hình ảnh 3">
+    </div>
+
+    <!-- Nút điều hướng -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<!-- Nút dưới cùng để chuyển đổi giữa các slide -->
+<div class="dot-container">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+
+<script>
+    // JavaScript để điều khiển slideshow
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        const slides = document.getElementsByClassName("mySlides");
+        const dots = document.getElementsByClassName("dot");
+
+        if (n > slides.length) {
+            slideIndex = 1;
+        }
+
+        if (n < 1) {
+            slideIndex = slides.length;
+        }
+
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+
+    // Tự động chuyển slide sau một khoảng thời gian
+    setInterval(function() {
+        plusSlides(1);
+    }, 3000); // 3 giây
+</script>
+
+</body>
+</html>

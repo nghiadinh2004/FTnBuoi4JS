@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thay Đổi Trang Web</title>
+</head>
+<body>
+    <label for="MauNen">Màu Nền:</label>
+    <input type="text" id="MauNen" placeholder="Nhập mã màu" />
+    <br>
+
+    <label for="MauChu">Màu Chữ:</label>
+    <input type="text" id="MauChu" placeholder="Nhập mã màu" />
+    <br>
+
+    <label for="TieuDe">Tiêu Đề:</label>
+    <input type="text" id="TieuDe" placeholder="Nhập tiêu đề" />
+    <br>
+
+    <label for="TrangThai">Trạng Thái:</label>
+    <input type="text" id="TrangThai" placeholder="Nhập trạng thái" />
+    <br>
+
+    <button onclick="thayDoiTrang()">Thay Đổi</button>
+
+    <script>
+        function thayDoiTrang() {
+            var mauNen = document.getElementById("MauNen").value;
+            var mauChu = document.getElementById("MauChu").value;
+            var tieuDe = document.getElementById("TieuDe").value;
+            var trangThai = document.getElementById("TrangThai").value;
+
+            // Thay đổi màu nền
+            document.body.style.backgroundColor = mauNen;
+
+            // Thay đổi màu chữ
+            document.body.style.color = mauChu;
+
+            // Thay đổi tiêu đề
+            document.title = tieuDe;
+
+            // Thay đổi trạng thái của cửa sổ trình duyệt
+            window.status = trangThai;
+        }
+    </script>
+</body>
+</html>

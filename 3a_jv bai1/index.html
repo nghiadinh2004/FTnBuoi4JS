@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="inputNumber" placeholder="Nhập một số" />
+    <button onclick="printNumbers()">In Số</button>
+    <p id="result"></p>
+
+    <script>
+        function printNumbers() {
+            var inputElement = document.getElementById("inputNumber");
+            var resultElement = document.getElementById("result");
+
+            // Lấy giá trị từ ô textbox
+            var inputValue = inputElement.value;
+
+            // Kiểm tra xem giá trị nhập vào có phải là số không
+            if (!isNaN(inputValue)) {
+                var numbers = [];
+                for (var i = 1; i <= parseInt(inputValue); i++) {
+                    numbers.push(i);
+                }
+                
+                // Hiển thị các số đã được in ra
+                resultElement.textContent = "Các số từ 1 đến " + inputValue + ": " + numbers.join(", ");
+            } else {
+                resultElement.textContent = "Vui lòng nhập một số hợp lệ.";
+            }
+        }
+    </script>
+</body>
+</html>
